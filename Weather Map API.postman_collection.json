@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "03230ba0-e3cd-4c49-910b-1e95b5f95af3",
+		"name": "Weather Map API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24518618"
+	},
+	"item": [
+		{
+			"name": "All Weather Test Cases",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response.coord);\r",
+							"\r",
+							"pm.test(\"Verify latitude is 51.51\", () => {\r",
+							"    pm.expect(response.coord.lat).to.eql(51.51);\r",
+							"});\r",
+							"pm.test(\"Verify longitute is -0.13\", () => {\r",
+							"    pm.expect(response.coord.lon).to.eql(-0.13);\r",
+							"} );  \r",
+							"\r",
+							"const abc = response.weather[0];\r",
+							"\r",
+							"pm.test(\"Varify the id = 300\", () => {\r",
+							"    pm.expect(abc.id).to.eql(300);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify the main is Drizzle\", () => {\r",
+							"    pm.expect(abc.main).to.eql(\"Drizzle\");\r",
+							"}); \r",
+							"\r",
+							"pm.test(\"Verify the description is light intensity drizzle\", () => {\r",
+							"    pm.expect(abc.description).to.eql(\"light intensity drizzle\");\r",
+							"});  \r",
+							" \r",
+							" console.log(response.main);\r",
+							" pm.test(\"Verify the Humidity of weather is 81\", () => {\r",
+							"     pm.expect(response.main.humidity).to.eql(81);\r",
+							" })\r",
+							"\r",
+							" console.log(response.wind);\r",
+							" pm.test(\"Verify the Speed of Wind is 4.1\", () => {\r",
+							"    pm.expect(response.wind.speed).to.eql(4.1);\r",
+							" })\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6 907d289e10d714a6e88b30761fae22. \n",
+					"protocol": "https",
+					"host": [
+						"samples",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London,uk"
+						},
+						{
+							"key": "appid",
+							"value": "b6 907d289e10d714a6e88b30761fae22. \n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Latitude & Longitute",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Wether Description",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Weather Humidity",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
